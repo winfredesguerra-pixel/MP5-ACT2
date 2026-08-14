@@ -7,7 +7,7 @@
     <h1>Search for a Value</h1>
     <label>Enter array values (separated by commas):</label>
     <br>
-    <input type="text" id="arrayInput">
+    <input type="text" id="arrayInput" value="10,20,30,40">
     <br><br>
     <label>Enter value to search:</label>
     <br>
@@ -22,7 +22,8 @@
             let searchValue = document.getElementById("searchValue").value;
             let array = input.split(",");
             let found = false;
-            for (let i = 0; i < array.length; i++) 
+            
+            for (let i = 0; i < array.length; i++) {
                 if (array[i].trim() == searchValue.trim()) {
                     document.getElementById("result").innerHTML =
                         'Value "' + searchValue + '" found at index ' + i + '.';
@@ -30,10 +31,9 @@
                     break;
                 }
             }
-
             if (found == false) {
                 document.getElementById("result").innerHTML =
-                'Value "' + searchValue + '" does not exist in the array.';
+                    'Value "' + searchValue + '" does not exist in the array.';
             }
         }
     </script>
