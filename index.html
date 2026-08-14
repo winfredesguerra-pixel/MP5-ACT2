@@ -1,20 +1,41 @@
-let arr = [10, 25, 5, 18, 30];
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search for a Value</title>
+</head>
+<body>
+    <h1>Search for a Value</h1>
+    <label>Enter array values (separated by commas):</label>
+    <br>
+    <input type="text" id="arrayInput">
+    <br><br>
+    <label>Enter value to search:</label>
+    <br>
+    <input type="text" id="searchValue">
+    <br><br>
+    <button onclick="searchArray()">Search</button>
+    <h2>Result:</h2>
+    <p id="result"></p>
+    <script>
+        function searchArray() {
+            let input = document.getElementById("arrayInput").value;
+            let searchValue = document.getElementById("searchValue").value;
+            let array = input.split(",");
+            let found = false;
+            for (let i = 0; i < array.length; i++) 
+                if (array[i].trim() == searchValue.trim()) {
+                    document.getElementById("result").innerHTML =
+                        'Value "' + searchValue + '" found at index ' + i + '.';
+                    found = true;
+                    break;
+                }
+            }
 
-console.log("Array:", arr);
-
-let searchValue = parseInt(prompt("Enter a value to search:"));
-let found = false;
-
-for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === searchValue) {
-        console.log("Value found!");
-        console.log("Value:", arr[i]);
-        console.log("Index:", i);
-        found = true;
-        break;
-    }
-}
-
-if (!found) {
-    console.log("Value does not exist in the array.");
-}
+            if (found == false) {
+                document.getElementById("result").innerHTML =
+                'Value "' + searchValue + '" does not exist in the array.';
+            }
+        }
+    </script>
+</body>
+</html>
